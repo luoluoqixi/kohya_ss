@@ -64,13 +64,13 @@ def caption_images(
 
 
 def gradio_git_caption_gui_tab(headless=False):
-    with gr.Tab('GIT Captioning'):
+    with gr.Tab('GIT Captioning（GIT 标注）'):
         gr.Markdown(
             'This utility will use GIT to caption files for each images in a folder.'
         )
         with gr.Row():
             train_data_dir = gr.Textbox(
-                label='Image folder to caption',
+                label='Image folder to caption (标注图片的目录)',
                 placeholder='Directory containing the images to caption',
                 interactive=True,
             )
@@ -84,42 +84,42 @@ def gradio_git_caption_gui_tab(headless=False):
             )
         with gr.Row():
             caption_ext = gr.Textbox(
-                label='Caption file extension',
+                label='Caption file extension （标注文件的后缀名）',
                 placeholder='Extention for caption file. eg: .caption, .txt',
                 value='.txt',
                 interactive=True,
             )
 
             prefix = gr.Textbox(
-                label='Prefix to add to BLIP caption',
+                label='Prefix to add to BLIP caption （添加前缀）',
                 placeholder='(Optional)',
                 interactive=True,
             )
 
             postfix = gr.Textbox(
-                label='Postfix to add to BLIP caption',
+                label='Postfix to add to BLIP caption （添加后缀）',
                 placeholder='(Optional)',
                 interactive=True,
             )
 
             batch_size = gr.Number(
-                value=1, label='Batch size', interactive=True
+                value=1, label='Batch size（批次大小）', interactive=True
             )
 
         with gr.Row():
             max_data_loader_n_workers = gr.Number(
-                value=2, label='Number of workers', interactive=True
+                value=2, label='Number of workers（工作线程数量）', interactive=True
             )
             max_length = gr.Number(
-                value=75, label='Max length', interactive=True
+                value=75, label='Max length（最大长度）', interactive=True
             )
             model_id = gr.Textbox(
-                label='Model',
+                label='Model（模型）',
                 placeholder='(Optional) model id for GIT in Hugging Face',
                 interactive=True,
             )
 
-        caption_button = gr.Button('Caption images')
+        caption_button = gr.Button('Caption images（开始标注图片）')
 
         caption_button.click(
             caption_images,

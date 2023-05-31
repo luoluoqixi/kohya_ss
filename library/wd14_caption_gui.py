@@ -69,7 +69,7 @@ def caption_images(
 
 
 def gradio_wd14_caption_gui_tab(headless=False):
-    with gr.Tab('WD14 Captioning'):
+    with gr.Tab('WD14 Captioning (WD14 二次元Tag 标注)'):
         gr.Markdown(
             'This utility will use WD14 to caption files for each images in a folder.'
         )
@@ -78,7 +78,7 @@ def gradio_wd14_caption_gui_tab(headless=False):
         # with gr.Section('Input Settings'):
         with gr.Row():
             train_data_dir = gr.Textbox(
-                label='Image folder to caption',
+                label='Image folder to caption （标注图片的目录）',
                 placeholder='Directory containing the images to caption',
                 interactive=True,
             )
@@ -92,7 +92,7 @@ def gradio_wd14_caption_gui_tab(headless=False):
             )
 
             caption_extension = gr.Textbox(
-                label='Caption file extension',
+                label='Caption file extension （标注文件的后缀名）',
                 placeholder='Extention for caption file. eg: .caption, .txt',
                 value='.txt',
                 interactive=True,
@@ -142,7 +142,7 @@ def gradio_wd14_caption_gui_tab(headless=False):
 
             general_threshold = gr.Slider(
                 value=0.35,
-                label='General threshold',
+                label='General threshold（通用阈值）',
                 info='Adjust `general_threshold` for pruning tags (less tags, less flexible)',
                 minimum=0,
                 maximum=1,
@@ -150,7 +150,7 @@ def gradio_wd14_caption_gui_tab(headless=False):
             )
             character_threshold = gr.Slider(
                 value=0.35,
-                label='Character threshold',
+                label='Character threshold（角色阈值）',
                 info='useful if you want to train with characte',
                 minimum=0,
                 maximum=1,
@@ -160,14 +160,14 @@ def gradio_wd14_caption_gui_tab(headless=False):
         # Advanced Settings
         with gr.Row():
             batch_size = gr.Number(
-                value=8, label='Batch size', interactive=True
+                value=8, label='Batch size（批次大小）', interactive=True
             )
 
             max_data_loader_n_workers = gr.Number(
                 value=2, label='Max dataloader workers', interactive=True
             )
 
-        caption_button = gr.Button('Caption images')
+        caption_button = gr.Button('Caption images（开始标注图片）')
 
         caption_button.click(
             caption_images,

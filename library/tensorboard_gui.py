@@ -47,7 +47,7 @@ def stop_tensorboard():
 
 def gradio_tensorboard():
     with gr.Row():
-        button_start_tensorboard = gr.Button('Start tensorboard')
-        button_stop_tensorboard = gr.Button('Stop tensorboard')
+        button_start_tensorboard = gr.Button('Start tensorboard (启动 tensorboard)')
+        button_stop_tensorboard = gr.Button('Stop tensorboard (停止 tensorboard)')
 
     return (button_start_tensorboard, button_stop_tensorboard)

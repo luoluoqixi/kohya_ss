@@ -69,13 +69,13 @@ def caption_images(
 
 # Gradio UI
 def gradio_basic_caption_gui_tab(headless=False):
-    with gr.Tab('Basic Captioning'):
+    with gr.Tab('Basic Captioning (基本标注)'):
         gr.Markdown(
             'This utility will allow the creation of simple caption files for each image in a folder.'
         )
         with gr.Row():
             images_dir = gr.Textbox(
-                label='Image folder to caption',
+                label='Image folder to caption (标注图片的目录)',
                 placeholder='Directory containing the images to caption',
                 interactive=True,
             )
@@ -88,40 +88,40 @@ def gradio_basic_caption_gui_tab(headless=False):
                 show_progress=False,
             )
             caption_ext = gr.Textbox(
-                label='Caption file extension',
+                label='Caption file extension (标注文件的后缀名)',
                 placeholder='Extension for caption file. eg: .caption, .txt',
                 value='.txt',
                 interactive=True,
             )
             overwrite = gr.Checkbox(
-                label='Overwrite existing captions in folder',
+                label='Overwrite existing captions in folder (覆盖已存在的标注)',
                 interactive=True,
                 value=False,
             )
         with gr.Row():
             prefix = gr.Textbox(
-                label='Prefix to add to caption',
+                label='Prefix to add to caption (添加前缀)',
                 placeholder='(Optional)',
                 interactive=True,
             )
             caption_text = gr.Textbox(
-                label='Caption text',
+                label='Caption text (标注文本)',
                 placeholder='Eg: , by some artist. Leave empty if you just want to add pre or postfix',
                 interactive=True,
             )
             postfix = gr.Textbox(
-                label='Postfix to add to caption',
+                label='Postfix to add to caption (添加后缀)',
                 placeholder='(Optional)',
                 interactive=True,
             )
         with gr.Row():
             find_text = gr.Textbox(
-                label='Find text',
+                label='Find text （查找文本）',
                 placeholder='Eg: , by some artist. Leave empty if you just want to add pre or postfix',
                 interactive=True,
             )
             replace_text = gr.Textbox(
-                label='Replacement text',
+                label='Replacement text （替换文本）',
                 placeholder='Eg: , by some artist. Leave empty if you just want to replace with nothing',
                 interactive=True,
             )
